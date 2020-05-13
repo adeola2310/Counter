@@ -1,0 +1,24 @@
+import * as actionTypes from '../actions/actionTypes';
+
+// this is done while using redux thunk and are used to run asynchronous code
+export const saveResult = (res) =>{
+    return {
+        type: actionTypes.STORE_RESULT,
+        result: res
+    };
+}
+
+export const storeResult = (res) => {
+    return dispatch =>{
+        setTimeout(()=>{
+            dispatch(saveResult(res));
+        }, 2000);
+    }
+};
+
+export const deleteResult = (resElId) => {
+    return {
+        type: actionTypes.DELETE_RESULT,
+        resultElId: resElId
+    };
+};
